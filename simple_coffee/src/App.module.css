@@ -1,0 +1,47 @@
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column ;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  max-width: 1088px;
+  margin: 0 auto;
+  padding: 80px 0;
+  border-radius: 10px;
+  position: relative;
+  top: 160px;
+  gap: 10px;
+  background: #1B1D1F url(./assets/vector.svg) no-repeat 65% 8% ;
+}
+
+.container h1 {
+  color: #FEF7EE;
+  font-size: 32px;
+}
+
+.container p {
+  width: 500px;
+  text-align: center;
+  font-size: 16px;
+  color: #6F757C;
+}
+
+.links {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a {
+  text-decoration: none;
+  color: #FEF7EE;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.links a:active, .links a:hover {
+  background-color: #4D5562;
+}
+
