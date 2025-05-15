@@ -1,6 +1,6 @@
 import style from "./App.module.css";
 import Banner from "./components/Banner";
-import Coffee from "./components/Coffee";
+import Card from "./components/Card";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Banner />
       <div className={style.container}>
         <h1>Our Collection</h1>
-        <p>
+        <p className={style.subtitle}>
           Introducing our Coffee Collection, a selection of unique coffees from
           different roast types and origins, expertly roasted in small batches
           and shipped fresh weekly.
@@ -17,7 +17,11 @@ function App() {
           <a href="#">All Products</a>
           <a href="#">Available Now</a>
         </div>
-        <Coffee />
+        <div className={style.card_list}>
+          <Card />
+          <Card />
+          <Card />
+        </div>
       </div>
     </>
   );
