@@ -3,12 +3,12 @@ import Banner from "./components/Banner";
 import Card from "./components/Card";
 import { useFetch } from "./hooks/useFetch";
 
-const url = 'https://raw.githubusercontent.com/devchallenges-io/curriculum/refs/heads/main/4-frontend-libaries/challenges/group_1/data/simple-coffee-listing-data.json'
+const url =
+  "https://raw.githubusercontent.com/devchallenges-io/curriculum/refs/heads/main/4-frontend-libaries/challenges/group_1/data/simple-coffee-listing-data.json";
 
 function App() {
-
   const { data: items, loading, error } = useFetch(url);
-  console.log(items)
+  console.log(items);
 
   return (
     <>
@@ -24,13 +24,24 @@ function App() {
           <a href="#">All Products</a>
           <a href="#">Available Now</a>
         </div>
+        {loading && <p className={style.loading}>Carregando dados...</p>}
+        {error && <p>{error}</p>}
         <div className={style.card_list}>
-          {items && items.map((item) => (
-            <>
-            {console.log(typeof item)}
-            <Card name={item.name} image={item.image} price={item.price} rating={item.rating} votes={item.votes} popular={item.popular} available={item.available}/>
-            </>
-          ))}
+          {items &&
+            items.map((item) => (
+              <>
+                {console.log(typeof item)}
+                <Card
+                  name={item.name}
+                  image={item.image}
+                  price={item.price}
+                  rating={item.rating}
+                  votes={item.votes}
+                  popular={item.popular}
+                  available={item.available}
+                />
+              </>
+            ))}
         </div>
       </div>
     </>
