@@ -1,4 +1,7 @@
 import style from "./Card.module.css";
+import star_fill from '../assets/Star_fill.svg'
+import star from '../assets/Star.svg'
+
 
 type Props = {
   name: string;
@@ -31,7 +34,7 @@ function Card(props: Props) {
         </div>
         <div>
           <div>
-            <img src={props.rating ? "./src/assets/Star_fill.svg" : "./src/assets/Star.svg"} alt="rating star" />
+            <img src={props.rating ? star_fill : star} alt="rating star" />
             {props.rating && <p>{props.rating}</p>}
             {props.votes ? <span>({props.votes} votes)</span> : <span>No ratings</span>}
           </div>
