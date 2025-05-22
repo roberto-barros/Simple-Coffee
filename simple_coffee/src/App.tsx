@@ -1,8 +1,15 @@
 import style from "./App.module.css";
 import Banner from "./components/Banner";
 import Card from "./components/Card";
+import { useFetch } from "./hooks/useFetch";
+
+const url = 'https://raw.githubusercontent.com/devchallenges-io/curriculum/refs/heads/main/4-frontend-libaries/challenges/group_1/data/simple-coffee-listing-data.json'
 
 function App() {
+
+  const { data: items, loading, error } = useFetch(url);
+  console.log(items)
+
   return (
     <>
       <Banner />
@@ -18,9 +25,12 @@ function App() {
           <a href="#">Available Now</a>
         </div>
         <div className={style.card_list}>
-          <Card />
-          <Card />
-          <Card />
+          {items && items.map((item) => (
+            <>
+            {console.log(typeof item)}
+            <Card name={item.name} image={item.image} price={item.price} rating={item.rating} votes={item.votes} popular={item.popular} available={item.available}/>
+            </>
+          ))}
         </div>
       </div>
     </>

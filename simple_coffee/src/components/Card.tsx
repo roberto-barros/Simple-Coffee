@@ -1,31 +1,45 @@
 import style from "./Card.module.css";
 
-type Props = {};
+type Props = {
+  name: string;
+  image: string;
+  price: string;
+  rating: number;
+  votes: number;
+  popular: boolean;
+  available: boolean;
+};
 
-function Coffee({}: Props) {
+
+
+function Card(props: Props) {
   return (
     <div className={style.card_container}>
       <div className={style.image_container}>
         <img
           className={style.image}
-          src="https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/cappuccino.jpg"
+          src={props.image}
           alt=""
         />
-        <span className={style.category}>Popular</span>
+        {props.popular && <span className={style.category}>Popular</span>}
+        {/* {!props.popular && <span className={style.category} hidden>Popular</span>} */}
       </div>
       <div className={style.details_container}>
         <div>
-          <p>Cappuccino</p>
-          <span>$5.20</span>
+          <p>{props.name}</p>
+          <span className={style.price}>{props.price}</span>
         </div>
         <div>
-          <img src="./src/assets/Star_fill.svg" alt="" />
-          <p>4.7</p>
-          <span>(65 votes)</span>
+          <div>
+            <img src={props.rating ? "./src/assets/Star_fill.svg" : "./src/assets/Star.svg"} alt="rating star" />
+            {props.rating && <p>{props.rating}</p>}
+            {props.votes ? <span>({props.votes} votes)</span> : <span>No ratings</span>}
+          </div>
+          {!props.available && <p className={style.available}>Sold out</p>}          
         </div>
       </div>
     </div>
   );
 }
 
-export default Coffee;
+export default Card;
