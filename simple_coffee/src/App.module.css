@@ -64,3 +64,15 @@
   flex-wrap: wrap;
 }
 
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 40px 0 60px 0;
+    top: 70px;
+    background-position: 52% 1%;
+  }
+
+  .container .subtitle {
+    width: 90%;
+  }
+}

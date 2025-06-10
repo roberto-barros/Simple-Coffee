@@ -31,7 +31,7 @@ function App() {
             items.map((item) => (
               <>
                 {console.log(typeof item)}
-                <Card
+                <Card key={item.id}
                   name={item.name}
                   image={item.image}
                   price={item.price}
